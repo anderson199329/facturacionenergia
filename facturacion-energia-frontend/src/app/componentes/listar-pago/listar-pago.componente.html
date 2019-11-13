@@ -1,0 +1,33 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Listado de Pagos</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <button class="btn" title="pagar" (click)="realizarPago()">Pagar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <th>Numero factura</th>
+                        <th>Fecha pago</th>
+                    </thead>
+                    <tbody *ngIf="listaPago!=null">
+                        <tr *ngFor="let pagoLista of listaPago">
+                            <td>{{pagoLista.numeroFactura}}</td>
+                            <td>{{pagoLista.fechaPago}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-12" *ngIf="listaPago==null">
+                    {{estadoRespuesta}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

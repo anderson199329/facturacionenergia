@@ -1,0 +1,41 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Listado de Facturas</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <button class="btn" title="Agregar" (click)="adicionarFactura()">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <th>Numero</th>
+                        <th>Consumo kwh</th>
+                        <th>Mes</th>
+                        <th>Año</th>
+                        <th>Total pagar</th>
+                        <th>Cliente</th>
+                    </thead>
+                    <tbody *ngIf="listaFactura!=null">
+                        <tr *ngFor="let facturaLista of listaFactura">
+                            <td>{{facturaLista.numero}}</td>
+                            <td>{{facturaLista.consumo}}</td>
+                            <td>{{facturaLista.mes}}</td>
+                            <td>{{facturaLista.ano}}</td>
+                            <td>{{facturaLista.totalPagar}} PESOS</td>
+                            <td>{{facturaLista.cliente}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-12" *ngIf="listaFactura==null">
+                    {{estadoRespuesta}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

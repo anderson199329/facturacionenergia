@@ -1,0 +1,33 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Historial Consumo</h5>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <th>Numero factura</th>
+                        <th>Consumo kwh</th>
+                        <th>Mes</th>
+                        <th>Año</th>
+                    </thead>
+                    <tbody *ngIf="listaFactura!=null">
+                        <tr *ngFor="let facturaLista of listaFactura">
+                            <td>{{facturaLista.numero}}</td>
+                            <td>{{facturaLista.consumo}}</td>
+                            <td>{{facturaLista.mes}}</td>
+                            <td>{{facturaLista.ano}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-12" *ngIf="listaFactura==null">
+                    {{estadoRespuesta}}
+                </div>
+                <button class="btn" routerLink="listar-cliente">Regresar</button>
+            </div>
+        </div>
+    </div>
+</div>

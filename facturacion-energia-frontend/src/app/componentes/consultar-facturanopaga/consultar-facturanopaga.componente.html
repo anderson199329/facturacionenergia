@@ -1,0 +1,34 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" numbersOnly class="form-control"  id="idNumeroFactura" placeholder="Ingrese número de factura..." #numeroFactura>
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn" (click)="consultarFactura(numeroFactura.value)">Buscar</button>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="listaFactura!=null">
+                    <div *ngFor="let facturaLista of listaFactura">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div><b>TOTAL PAGAR:</b>{{facturaLista.totalPagar}} PESOS</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="listaFactura==null">
+                    {{estadoRespuesta}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

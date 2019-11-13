@@ -1,0 +1,59 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title text-center">AGREGAR CLIENTE</h5>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" numbersOnly class="form-control" formControlName="cedulaNit" maxlength="12" placeholder="* Ingrese cedula/nit..." [ngClass]="{ 'is-invalid': addForm.get('cedulaNit').hasError('required') && addForm.get('cedulaNit').touched }">
+                                            <div *ngIf="addForm.controls['cedulaNit'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" formControlName="cliente" maxlength="50" placeholder="* Ingrese nombres y apellidos del cliente..." [ngClass]="{ 'is-invalid': addForm.get('cliente').hasError('required') && addForm.get('cliente').touched }">
+                                            <div *ngIf="addForm.controls['cliente'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" numbersOnly class="form-control" formControlName="estrato" maxlength="1" placeholder="* Ingrese estrato..." [ngClass]="{ 'is-invalid': addForm.get('estrato').hasError('required') && addForm.get('estrato').touched }">
+                                            <div *ngIf="addForm.controls['estrato'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" numbersOnly class="form-control" formControlName="telefono" maxlength="7" placeholder="* Ingrese el telefono...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" numbersOnly class="form-control" formControlName="celular" maxlength="10" placeholder="* Ingrese el celular...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                      <button class="btn" *ngIf="addForm.valid">Aceptar</button>
+                                    </div>
+                                      <button class="btn" routerLink="listar-cliente">Regresar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

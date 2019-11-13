@@ -1,0 +1,74 @@
+<div class="main-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="title">Detalle factura por cliente</h5>
+                    </div>
+                </div>
+                    <div *ngIf="listaClienteFactura!=null">
+                            <div *ngFor="let clienteFacturaLista of listaClienteFactura">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div><b>CEDULA/NIT:</b>{{clienteFacturaLista.cedulaNit}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div><b>CLIENTE:</b>{{clienteFacturaLista.cliente}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div><b>ESTRATO:</b>{{clienteFacturaLista.estrato}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div><b>TELEFONO:</b>{{clienteFacturaLista.telefono}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div><b>CELULAR:</b>{{clienteFacturaLista.celular}}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div><b>FACTURAS POR PAGAR</b></div>
+                                                <div>NUMERO:</div>
+                                                <div *ngFor="let pendiente of clienteFacturaLista.facturaPendientePago">
+                                                    {{pendiente}}
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div><b>FACTURAS PAGAS</b></div>
+                                                <div>NUMERO:</div>
+                                                <div *ngFor="let pago of clienteFacturaLista.facturaPaga">
+                                                    {{pago}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr>
+                            </div>
+                    </div>
+            </div>
+        </div>
+</div>

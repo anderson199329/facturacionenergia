@@ -1,0 +1,51 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title">Listado de Clientes</h5>
+                </div>
+                <div class="row">
+                    <div class="col-md-1">
+                        <button class="btn" title="Agregar" (click)="adicionarCliente()">Agregar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <th>Cedula/Nit</th>
+                        <th>Cliente</th>
+                        <th>Estrato</th>
+                        <th>Telefono</th>
+                        <th>Celular</th>
+                        <th>Opciones</th>
+                        <th></th>
+                        <th></th>
+                    </thead>
+                    <tbody *ngIf="listaCliente!=null">
+                        <tr *ngFor="let clienteLista of listaCliente">
+                            <td>{{clienteLista.cedulaNit}}</td>
+                            <td>{{clienteLista.cliente}}</td>
+                            <td>{{clienteLista.estrato}}</td>
+                            <td>{{clienteLista.telefono}}</td>
+                            <td>{{clienteLista.celular}}</td>
+                            <td>
+                                <button class="btn" title="Historial consumo" (click)="historialConsumo(clienteLista)">Historial consumo</button>
+                            </td>
+                            <td>
+                                <button class="btn" title="Actualizar" (click)="actualizarCliente(clienteLista)">Actualizar</button>
+                            </td>
+                            <td>
+                                <button class="btn" title="Eliminar" (click)=" eliminarCliente(clienteLista)">Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-12" *ngIf="listaCliente==null">
+                    {{estadoRespuesta}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

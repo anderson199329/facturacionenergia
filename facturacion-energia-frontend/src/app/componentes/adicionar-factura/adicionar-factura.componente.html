@@ -1,0 +1,76 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="title text-center">AGREGAR FACTURA</h5>
+                </div>
+                <div class="card-body">
+                    <div class="container">
+                        <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" numbersOnly class="form-control" formControlName="numero" maxlength="20" placeholder="* Ingrese Numero..." [ngClass]="{ 'is-invalid': addForm.get('numero').hasError('required') && addForm.get('numero').touched }">
+                                            <div *ngIf="addForm.controls['numero'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" numbersOnly class="form-control" formControlName="consumo" maxlength="6" placeholder="* Ingrese Consumo..." [ngClass]="{ 'is-invalid': addForm.get('consumo').hasError('required') && addForm.get('consumo').touched }">
+                                            <div *ngIf="addForm.controls['consumo'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select formControlName="mes" class="form-control" [(ngModel)]="mesSeleccionado">
+                                                    <option [ngValue]="undefined" disabled  selected>Seleccione un mes...</option>
+                                                <option [value]="item" *ngFor="let item of listaMeses">{{item}}</option>
+                                            </select>
+                                            <div *ngIf="addForm.controls['mes'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select formControlName="ano" class="form-control" [(ngModel)]="anoSeleccionado">
+                                                <option [ngValue]="undefined" disabled  selected>Seleccione un año...</option>
+                                                <option [value]="item" *ngFor="let item of listaAno">{{item}}</option>
+                                            </select>
+                                            <div *ngIf="addForm.controls['ano'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <input type="number" class="form-control" formControlName="totalPagar" placeholder="* Ingrese el total a pagar..." [ngClass]="{ 'is-invalid': addForm.get('totalPagar').hasError('required') && addForm.get('totalPagar').touched }">
+                                            <div *ngIf="addForm.controls['totalPagar'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <select formControlName="cliente" class="form-control" [(ngModel)]="cliente">
+                                                <option [ngValue]="undefined" disabled  selected>Seleccione un cliente...</option>
+                                                <option *ngFor="let clienteLista of listaCliente" [ngValue]="clienteLista.id">{{clienteLista.cliente}}</option>
+                                            </select>
+                                            <div *ngIf="addForm.controls['cliente'].hasError('required')">Campo requerido</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button class="btn" *ngIf="addForm.valid">Aceptar</button>
+                                    </div>
+                                        <button class="btn" (click)="listarFactura()">Regresar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
