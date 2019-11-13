@@ -1,0 +1,6 @@
+FROM adoptopenjdk/openjdk8:latest
+RUN mkdir /usr/src/serviciofacturacion
+COPY facturacion-energia-0.0.1-SNAPSHOT.jar /usr/src/serviciofacturacion
+WORKDIR /usr/src/serviciofacturacion
+EXPOSE 8080
+CMD ["java","-jar","/usr/src/serviciofacturacion/facturacion-energia-0.0.1-SNAPSHOT.jar"]
